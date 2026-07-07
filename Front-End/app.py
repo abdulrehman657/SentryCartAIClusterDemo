@@ -3,17 +3,20 @@ import pandas as pd
 import joblib
 import time
 
-# --- 1. PREMIUM COHESIVE DARK OBSIDIAN CONFIG ---
+# --- 1. PREMIUM COHESIVE DARK ESPRESSO CONFIG ---
 st.set_page_config(layout="wide", page_title="SentryCart - Behavioral AI Sandbox")
 
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap');
     
-    /* Smooth Continuous Dark Canvas */
-    html, body, [data-testid="stAppViewContainer"] {
+    /* 🚀 THE FIXED CANVAS TRICK: Force all Streamlit background layers to use your espresso color */
+    html, body, 
+    [data-testid="stAppViewContainer"], 
+    [data-testid="stMain"], 
+    [data-testid="stMainBlockContainer"] {
         font-family: 'Inter', sans-serif;
-        background-color: #161412 !important; /* Rich Dark Espresso/Obsidian */
+        background-color: #1a1512 !important; /* Rich Dark Espresso Canvas */
         color: #f4efe9 !important;             /* Crisp Soft White/Cream Text */
     }
     
@@ -25,21 +28,21 @@ st.markdown("""
         box-shadow: none !important;
     }
     
-    /* Unified Card Architecture - Connected Dark Mode */
+    /* Unified Card Architecture - Connected Rich Brown Depth */
     div[data-testid="stVerticalBlock"] > div:has(div.element-container) {
-        background-color: #221f1c !important;  /* Soft Warm Charcoal Depth */
-        border: 1px solid #322d28 !important;  /* Seamless Blended Dark Edge */
+        background-color: #261f1a !important;  /* Warm Coffee/Obsidian Card Base */
+        border: 1px solid #3d322a !important;  /* Seamless Blended Dark Earth Edge */
         border-radius: 16px !important;
         padding: 20px !important;
-        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4) !important;
         transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
     }
     
     /* Smooth Pop on Hover */
     div[data-testid="stVerticalBlock"] > div:has(div.element-container):hover {
         transform: translateY(-2px) !important;
-        border-color: #4a423a !important;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5) !important;
+        border-color: #54453a !important;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6) !important;
     }
     
     /* DEFINITIVE HIGH-LEGIBILITY GLOW BUTTONS */
@@ -98,6 +101,7 @@ st.markdown("""
     
     .subtitle {
         text-align: center !important;
+        color: #baae141a !important;
         color: #a69a90 !important;
         font-size: 1.1rem;
         max-width: 750px;
@@ -135,8 +139,8 @@ st.markdown("""
     
     /* Polished Code Elements */
     .stCodeBlock, div[data-testid="stMarkdownContainer"] pre {
-        background-color: #1a1816 !important;
-        border: 1px solid #322d28 !important;
+        background-color: #171310 !important;
+        border: 1px solid #3d322a !important;
         border-radius: 10px !important;
     }
     
@@ -159,8 +163,8 @@ st.markdown("""
     }
     
     .panel-stat {
-        background-color: #1e1b18;
-        border: 1px solid #322d28;
+        background-color: #1e1713;
+        border: 1px solid #3d322a;
         border-radius: 12px;
         padding: 16px;
         text-align: center;
@@ -168,8 +172,8 @@ st.markdown("""
     
     /* Clean Info Card styling */
     .info-card {
-        background-color: #1e1b18;
-        border: 1px solid #322d28;
+        background-color: #1e1713;
+        border: 1px solid #3d322a;
         border-radius: 12px;
         padding: 20px;
         margin-top: 15px;
@@ -347,7 +351,7 @@ elif st.session_state.stage == 'human_store':
                 with det_col2:
                     st.markdown(f"<h2 style='color:white; margin:0;'>{product['name']}</h2>", unsafe_allow_html=True)
                     st.markdown(f"<p style='font-size:1.4rem; font-weight:700; color:#c89d7c; margin-top:10px;'>${product['price']:.2f}</p>", unsafe_allow_html=True)
-                    st.markdown("<hr style='border-top:1px solid #322d28;'>", unsafe_allow_html=True)
+                    st.markdown("<hr style='border-top:1px solid #3d322a;'>", unsafe_allow_html=True)
                     st.markdown(f"<p style='color:#f4efe9; line-height:1.6; font-size:1.05rem;'>{product['long_desc']}</p>", unsafe_allow_html=True)
                     st.markdown("<br><br>", unsafe_allow_html=True)
                     
@@ -460,14 +464,12 @@ elif st.session_state.stage == 'bot_terminal':
         else:
             log_placeholder.code(st.session_state.current_bot_logs, language="bash")
         
-        # --- FIX: Injected proxy variables directly into the simulated final payload ---
-        # Changing distance_km and failed_login from 0 to non-zero values flips the dashboard panel to a red alert warning!
         st.session_state.final_data = {
             'clicks_per_min': 450.0,
             'checkout_speed_sec': 0.8,
             'total_spend': 2850.0,
-            'failed_login': 1,         # Changed to 1 warning to trigger the alert border style
-            'distance_km': 6420.0      # Injected remote location distance to make the routing window flag turn red
+            'failed_login': 1,         
+            'distance_km': 6420.0      
         }
         
         st.markdown("<br>", unsafe_allow_html=True)
@@ -542,8 +544,6 @@ elif st.session_state.stage == 'verdict':
             </div>
         """, unsafe_allow_html=True)
         
-        # --- DYNAMIC COLOR FIX FROM THE ATTACHED SCREENSHOT ---
-        # If it's a bot run, this will now trigger true warnings and turn red matching your specification.
         t_color = "#f87171" if data['failed_login'] > 0 or data['distance_km'] > 0 else "#34d399"
         c4.markdown(f"""
             <div class='panel-stat' style='border-top: 4px solid {t_color};'>
@@ -556,12 +556,12 @@ elif st.session_state.stage == 'verdict':
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("<h5 style='color:white;'>Raw Numerical Metrics Evaluated by AI:</h5>", unsafe_allow_html=True)
     st.dataframe(input_df.style.set_properties(**{
-        'background-color': '#221f1c',
+        'background-color': '#261f1a',
         'color': '#f4efe9',
-        'border-color': '#322d28'
+        'border-color': '#3d322a'
     }).format(precision=2), use_container_width=True, hide_index=True)
 
-    st.markdown("<br><hr style='border:0; border-top:1px solid #322d28;'>", unsafe_allow_html=True)
+    st.markdown("<br><hr style='border:0; border-top:1px solid #3d322a;'>", unsafe_allow_html=True)
     if st.button("🔄 Reset Environment & Try Again", use_container_width=True):
         reset_sandbox()
         st.rerun()
