@@ -10,12 +10,14 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap');
     
-    /* 🚀 THE FIXED CANVAS TRICK: Force all Streamlit background layers to use your espresso color */
+    /* 🎯 THE ULTIMATE BACKGROUND CRACKER: Force every single layer to be your dark espresso */
     html, body, 
+    .stApp, 
+    .main, 
     [data-testid="stAppViewContainer"], 
     [data-testid="stMain"], 
     [data-testid="stMainBlockContainer"] {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', sans-serif !important;
         background-color: #1a1512 !important; /* Rich Dark Espresso Canvas */
         color: #f4efe9 !important;             /* Crisp Soft White/Cream Text */
     }
@@ -101,7 +103,6 @@ st.markdown("""
     
     .subtitle {
         text-align: center !important;
-        color: #baae141a !important;
         color: #a69a90 !important;
         font-size: 1.1rem;
         max-width: 750px;
@@ -556,12 +557,13 @@ elif st.session_state.stage == 'verdict':
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("<h5 style='color:white;'>Raw Numerical Metrics Evaluated by AI:</h5>", unsafe_allow_html=True)
     st.dataframe(input_df.style.set_properties(**{
-        'background-color': '#261f1a',
+        'background-color': '#221f1c',
         'color': '#f4efe9',
-        'border-color': '#3d322a'
+        'border-color': '#322d28'
     }).format(precision=2), use_container_width=True, hide_index=True)
 
-    st.markdown("<br><hr style='border:0; border-top:1px solid #3d322a;'>", unsafe_allow_html=True)
+    st.markdown("<br><hr style='border:0; border-top:1px solid #322d28;'>", unsafe_allow_html=True)
     if st.button("🔄 Reset Environment & Try Again", use_container_width=True):
         reset_sandbox()
         st.rerun()
+}
