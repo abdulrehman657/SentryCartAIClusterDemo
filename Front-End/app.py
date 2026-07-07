@@ -566,4 +566,3 @@ elif st.session_state.stage == 'verdict':
     if st.button("🔄 Reset Environment & Try Again", use_container_width=True):
         reset_sandbox()
         st.rerun()
-}
