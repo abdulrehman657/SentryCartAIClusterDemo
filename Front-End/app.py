@@ -181,7 +181,7 @@ st.markdown("""
 @st.cache_resource
 def load_security_model():
     try:
-        return joblib.load('security_model.pkl')
+        return joblib.load('Front-End/security_model.pkl')
     except FileNotFoundError:
         st.error("⚠️ 'security_model.pkl' model file missing. Please place your trained model weights in this project folder.")
         return None
